@@ -22,6 +22,7 @@ class NotesController < ApplicationController
   # POST /notes or /notes.json
   def create
     @note = Note.new(note_params)
+    @notes = Note.all
 
     respond_to do |format|
       if @note.save
@@ -37,7 +38,7 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1 or /notes/1.json
   def update
     respond_to do |format|
-      if @note.update
+      if @note.update(note_params)
         format.html { redirect_to @note, notice: "Note was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @note }
       else

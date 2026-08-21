@@ -6,9 +6,9 @@
 
 <div id="notes">
   <% @notes.each do |note| %>
-    <%= render 'note' %>
+    <%= render note %>
     <p>
-      <%= link_to "Show this note", notes_path %>
+      <%= link_to "Show this note", note %>
     </p>
   <% end %>
 </div>
